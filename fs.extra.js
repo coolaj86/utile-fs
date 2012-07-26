@@ -2,9 +2,19 @@
 (function () {
   "use strict";
 
-  var fs = require('fs')
+  var oldFs = require('fs')
+    , extraFs = require('fs-extra')
     , util = require('util')
+    , fs = {}
     ;
+
+  Object.keys(extraFs).forEach(function (key) {
+    fs[key] = extraFs[key];
+  });
+
+  Object.keys(oldFs).forEach(function (key) {
+    fs[key] = oldFs[key];
+  });
 
   fs.copy = require('./fs.copy.js');
   fs.copyRecursive = require('./fs.copy-recursive.js');
@@ -17,11 +27,13 @@
   fs.mkdirRecursive = fs.mkdirp;
   fs.mkdirRecursiveSync = fs.mkdirp.sync;
 
-  fs.rmrf = require('fs-extra').rmrf;
-  fs.rmrfSync = require('fs-extra').rmrfSync;
+  fs.remove = extraFs.remove;
+  fs.removeSync = extraFs.removeSync;
   // Alias
-  fs.rmRecursive = require('fs-extra').rmrf;
-  fs.rmRecursiveSync = require('fs-extra').rmrfSync;
+  fs.rmrf = extraFs.remove;
+  fs.rmrfSync = extraFs.removeSync;
+  fs.rmRecursive = extraFs.rmrf;
+  fs.rmRecursiveSync = extraFs.rmrfSync;
 
   fs.walk = require('walk').walk;
 

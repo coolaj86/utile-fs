@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "mkdirp": "0.3.x",
-    "fs-extra": "0.1.x",
+    "fs-extra": "0.1.2",
     "walk": "2.x"
   },
   "devDependencies": {
