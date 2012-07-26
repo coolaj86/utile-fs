@@ -1,4 +1,4 @@
-Used to be at <https://github.com/nshah/node-walker>
+Used to be at <https://github.com/nshah/nodejs-walker>
 
 walker
 ======
