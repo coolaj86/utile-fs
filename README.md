@@ -2,7 +2,7 @@ A temporary holding space for fs-extra, fs.extra, wrench, and utile until we fig
 
 Included methods:
 
-  * rmraf
+  * rimraf
   * mkdirp
   * walk
   * copy (recursive)
