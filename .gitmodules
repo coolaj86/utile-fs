@@ -10,3 +10,9 @@
 [submodule "rimraf"]
 	path = rimraf
 	url = git://github.com/isaacs/rimraf.git
+[submodule "walk"]
+	path = walk
+	url = git://github.com/coolaj86/node-walk.git
+[submodule "node-walker"]
+	path = node-walker
+	url = git://github.com/klovadis/node-walker.git
