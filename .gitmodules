@@ -4,3 +4,9 @@
 [submodule "wrench"]
 	path = wrench
 	url = git://github.com/ryanmcgrath/wrench-js.git
+[submodule "mkdirp"]
+	path = mkdirp
+	url = git://github.com/substack/node-mkdirp.git
+[submodule "rimraf"]
+	path = rimraf
+	url = git://github.com/isaacs/rimraf.git
