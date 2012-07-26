@@ -1,9 +1,7 @@
 (function () {
   "use strict";
 
-  require('./fs.extra');
-
-  var fs = require('fs')
+  var fs = require('./fs.extra')
     , sequence = require('sequence')()
     , exec = require('child_process').exec
     , count = 0
