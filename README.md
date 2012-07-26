@@ -122,7 +122,17 @@ Aliases and Backwards Compatibility
 
 For the sake of backwards compatability, you can call the recursive functions with their names as such
 
-    fs.rmRecursive <- fs.rmrf
-    fs.rmRecursiveSync <- fs.rmrfSync
+    fs.remove <- fs.rmRecursive <- fs.rmrf
+    fs.removeSync <- fs.rmRecursiveSync <- fs.rmrfSync
     fs.mkdirRecursive <- fs.mkdirp
     fs.mkdirRecursiveSync <- fs.mkdirpSync
+
+License
+===
+
+Copyright AJ ONeal 2011-2012
+
+This project is available under the MIT and Apache v2 licenses.
+
+  * http://www.opensource.org/licenses/mit-license.php
+  * http://www.apache.org/licenses/LICENSE-2.0.html
