@@ -1,0 +1,6 @@
+[submodule "fs-extra"]
+	path = fs-extra
+	url = git://github.com/jprichardson/node-fs-extra.git
+[submodule "wrench"]
+	path = wrench
+	url = git://github.com/ryanmcgrath/wrench-js.git
