@@ -2,7 +2,7 @@
   "author": "AJ ONeal <coolaj86@gmail.com> (http://coolaj86.info/)",
   "name": "fs.extra",
   "description": "fs.move and fs.copy for Node.JS",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/coolaj86/node-examples-js.git"
@@ -15,9 +15,9 @@
     "node": "*"
   },
   "dependencies": {
-    "mkdirp": "0.3.x",
-    "fs-extra": "0.1.2",
-    "walk": "2.x"
+    "mkdirp": "~0.3.5",
+    "fs-extra": "~0.6.1",
+    "walk": "~2.2.1"
   },
   "devDependencies": {
     "sequence": "*"
