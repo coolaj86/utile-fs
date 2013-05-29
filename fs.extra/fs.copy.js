@@ -25,7 +25,7 @@
         os = fs.createWriteStream(dst);
 
         is.pipe(os);
-        os.on('end', function (err) {
+        os.on('close', function (err) {
           if (err) {
             return cb(err);
           }

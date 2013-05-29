@@ -20,7 +20,7 @@
     "walk": "~2.2.1"
   },
   "devDependencies": {
-    "sequence": "*"
+    "sequence": "~2.2.1"
   },
   "licenses": [
     {
