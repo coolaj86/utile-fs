@@ -1,79 +1,109 @@
 fs.extra
 ===
 
-Adds `copy`, `copyRecursive`, `mkdirp`, `move`, `walk`, and `rmrf` to Node.JS' `fs`.
+Extra file utilities for node.js
 
-Install with `npm install -S fs.extra`
+**Includes**
 
-    // this will have all of the normal fs methods
-    var fs = require('fs.extra');
+* `copy`
+* `copyRecursive`
+* `mkdirp`
+* `move`
+* `walk`
+* `rmrf`
+
+**Install**
+
+``` bash
+npm install --save fs.extra
+````
+
+**Usage**
+
+```javascript
+// this will have all of a copy of the normal fs methods as well
+var fs = require('fs.extra');
+```
 
 fs.copy
 ===
 
 Creates an `fs.readStream` and `fs.writeStream` and uses `util.pump` to efficiently copy.
 
-    fs.copy('foo.txt', 'bar.txt', function (err) {
-      if (err) {
-        throw err;
-      }
+```javascript
+fs.copy('foo.txt', 'bar.txt', { replace: false }, function (err) {
+  if (err) {
+    // i.e. file already exists or can't write to directory
+    throw err;
+  }
 
-      console.log("Copied 'foo.txt' to 'bar.txt');
-    });
+  console.log("Copied 'foo.txt' to 'bar.txt');
+});
+```
+
+Options are optional. `replace` defaults to false, but will replace existing files if set to `true`.
 
 fs.copyRecursive
 ===
 
 Basically a local `rsync`, uses `fs.copy` to recursively copy files and folders (with correct permissions).
 
-    fs.copyRecursive('./foo', './bar', function (err) {
-      if (err) {
-        throw err;
-      }
+```javascript
+fs.copyRecursive('./foo', './bar', function (err) {
+  if (err) {
+    throw err;
+  }
 
-      console.log("Copied './foo' to './bar');
-    });
+  console.log("Copied './foo' to './bar');
+});
+```
 
 fs.mkdirRecursive
 ===
 
 Included from <https://github.com/substack/node-mkdirp>
 
-    // fs.mkdirp(path, mode=(0777 & (~process.umask())), cb);
+```javascript
+// fs.mkdirp(path, mode=(0777 & (~process.umask())), cb);
 
-    fs.mkdirp('/tmp/foo/bar/baz', function (err) {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log('pow!')
-      }
-    });
+fs.mkdirp('/tmp/foo/bar/baz', function (err) {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log('pow!')
+  }
+});
+```
 
 fs.mkdirRecursiveSync
 ===
 
 Included from <https://github.com/substack/node-mkdirp>
 
-    // fs.mkdirpSync(path, mode=(0777 & (~process.umask())));
+```javascript
+// fs.mkdirpSync(path, mode=(0777 & (~process.umask())));
 
-    try {
-      fs.mkdirpSync('/tmp/foo/bar/baz');
-    } catch(e) {
-      throw e;
-    }
+try {
+  fs.mkdirpSync('/tmp/foo/bar/baz');
+} catch(e) {
+  throw e;
+}
+```
 
 fs.move
 ===
 
 Attempts `fs.rename`, then tries `fs.copy` + `fs.unlink` before failing.
 
-    fs.move('foo.txt', 'bar.txt', function (err) {
-      if (err) {
-        throw err;
-      }
+```javascript
+fs.move('foo.txt', 'bar.txt', function (err) {
+  if (err) {
+    throw err;
+  }
 
-      console.log("Moved 'foo.txt' to 'bar.txt');
-    });
+  console.log("Moved 'foo.txt' to 'bar.txt');
+});
+```
 
 fs.rmRecursive
 ===
@@ -82,13 +112,15 @@ Included from <https://github.com/jprichardson/node-fs-extra>
 
 Recursively deletes a directory (like `rm -rf`)
 
-    // fs.rmrf(dir, callback);
+```javascript
+// fs.rmrf(dir, callback);
 
-    fs.rmrf('/choose/me/carefully/', function (err) {
-      if (err) {
-        console.error(err);
-      }
-    });
+fs.rmrf('/choose/me/carefully/', function (err) {
+  if (err) {
+    console.error(err);
+  }
+});
+```
 
 fs.rmRecursiveSync
 ===
@@ -97,25 +129,29 @@ Included from <https://github.com/jprichardson/node-fs-extra>
 
 Recursively deletes a directory (like `rm -rf`)
 
-    // fs.rmrfSync(dir);
+```javascript
+// fs.rmrfSync(dir);
 
-    fs.rmrfSync('/choose/me/carefully/');
+fs.rmrfSync('/choose/me/carefully/');
+```
 
 fs.walk
 ===
 
 See <https://github.com/coolaj86/node-walk>
 
-    var walker = fs.walk(dir)
-      ;
+```javascript
+var walker = fs.walk(dir)
+  ;
 
-    // file, files, directory, directories
-    walker.on("file", function (root, stat, next) {
-      var filepath = path.join(root, stat.name)
-        ;
+// file, files, directory, directories
+walker.on("file", function (root, stat, next) {
+  var filepath = path.join(root, stat.name)
+    ;
 
-      console.log(filepath);
-    });
+  console.log(filepath);
+});
+```
 
 Aliases and Backwards Compatibility
 ===
@@ -130,7 +166,7 @@ For the sake of backwards compatability, you can call the recursive functions wi
 License
 ===
 
-Copyright AJ ONeal 2011-2012
+Copyright AJ ONeal 2011-2015
 
 This project is available under the MIT and Apache v2 licenses.
 

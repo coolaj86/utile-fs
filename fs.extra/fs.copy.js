@@ -6,13 +6,19 @@
 
   function noop() {}
 
-  function copy(src, dst, cb) {
+  function copy(src, dst, opts, cb) {
+    if ('function' === typeof opts) {
+      cb = opts;
+      opts = null;
+    }
+    opts = opts || {};
+
     function copyHelper(err) {
       var is
         , os
         ;
 
-      if (!err) {
+      if (!err && !opts.replace) {
         return cb(new Error("File " + dst + " exists."));
       }
 
