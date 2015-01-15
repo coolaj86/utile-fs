@@ -18,7 +18,7 @@
         , os
         ;
 
-      if (!err && !opts.replace) {
+      if (!err && !(opts.replace || opts.overwrite)) {
         return cb(new Error("File " + dst + " exists."));
       }
 
